@@ -35,7 +35,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string>[0,1)之间按fs[100,9999 9]采样，做nfft点fft变换。</string>
+    <string>[0,1)之间按fs[10,9999] 采样，做nfft点fft变换。</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -58,6 +58,36 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QRadioButton" name="order_radioButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>阶数:</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="order_spinBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>200</number>
+        </property>
+        <property name="value">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QRadioButton" name="accuracy_radioButton">
@@ -68,7 +98,7 @@
          <string>精度:</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -84,37 +114,10 @@
          <double>10.000000000000000</double>
         </property>
         <property name="singleStep">
-         <double>0.000100000000000</double>
+         <double>0.000010000000000</double>
         </property>
         <property name="value">
          <double>0.000100000000000</double>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QRadioButton" name="order_radioButton">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>阶数:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="order_spinBox">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="maximum">
-         <number>200</number>
-        </property>
-        <property name="value">
-         <number>4</number>
         </property>
        </widget>
       </item>
@@ -224,10 +227,10 @@
     <item>
      <widget class="QSpinBox" name="fs_spinBox">
       <property name="minimum">
-       <number>100</number>
+       <number>10</number>
       </property>
       <property name="maximum">
-       <number>99999</number>
+       <number>9999</number>
       </property>
       <property name="singleStep">
        <number>100</number>
@@ -288,7 +291,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>830</x>
@@ -317,12 +320,13 @@
        <number>200</number>
       </property>
       <property name="value">
-       <number>4</number>
+       <number>20</number>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>label_3</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -331,8 +335,6 @@
   <zorder>plot</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>
-  <zorder>label_5</zorder>
-  <zorder>burg_order_spinBox</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

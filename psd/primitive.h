@@ -22,6 +22,8 @@
 
 #define PI M_PI
 #define DBL_MAX 9999
+#define INIT_NODE(r) ((r)->prev = NULL)
+#define random() ((double)rand()/RAND_MAX)
 
 typedef struct func {
     double *x;
@@ -57,9 +59,8 @@ typedef struct ar_model {
     double p;
 } ARModel;
 
-#define INIT_NODE(r) ((r)->prev = NULL)
-
 typedef void (*PF)();
+
 extern int fs;
 extern int nfft;
 extern Pri pri;
@@ -68,9 +69,6 @@ extern void init();
 extern double arcorr_preci;
 extern int arcorr_order;
 extern int burg_order_var;
-
-extern void input();
-extern void direct();
 extern PF pf;
 
 extern double abs( Complex );
@@ -81,11 +79,6 @@ extern Complex com_neg(Complex );
 extern Complex com_div(Complex, double );
 extern Complex com_di(double, Complex);
 
-extern Complex *fft(Complex *, int, int);
-extern Complex xcorr(Complex *, int, int);
-extern void corr();
-extern void arcorr();
-extern void arcorr_or();
 
 extern void insert(Complex, RNode *);
 extern void destroy(RNode *);
@@ -93,10 +86,14 @@ extern void insert_d(double, KNode *);
 extern void destroy_d(KNode *);
 
 extern void psd(ARModel);
-
 extern ARModel burg(Complex *, int, int);
 extern void burg_order();
-
-
+extern Complex *fft(Complex *, int, int);
+extern Complex xcorr(Complex *, int, int);
+extern void corr();
+extern void arcorr();
+extern void arcorr_or();
+extern void input();
+extern void direct();
 
 #endif // PRIMITIVE_H

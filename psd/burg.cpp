@@ -15,7 +15,6 @@ ARModel burg(Complex *x, int n, int order)
     }
 
     for(m = 1; m <= order; m++) {
-printf("m = %d\n", m);
         free(efp); efp = efn;
         free(ebp); ebp = ebn;
         efn = (double *)malloc(n*sizeof(double));
@@ -26,22 +25,14 @@ printf("m = %d\n", m);
             suma += (efp[i]*ebp[i-1]);
             sumb += (efp[i]*efp[i] + ebp[i-1]*ebp[i-1]);
         }
-printf("suma = %lf    sumb = %lf\n", suma, sumb );
         double tmp = (-2*suma/sumb);
         insert_d( tmp, &k);
 
-printf("%lf\n", tmp);
         efn[0] = 0; ebn[0] = 0;
         for(i = 1; i < n; i++) {
             efn[i] = efp[i] + tmp*ebp[i-1];
         ebn[i] = ebp[i-1] + tmp*efp[i];
         }
-if(m == 1) {
-    //for(i = 0; i < n; i++) {
-        //printf("%lf\n", efn[i]);
-    //}
-
-}
     }
 
     free(efn); free(efp); free(ebn); free(ebp);
@@ -78,9 +69,5 @@ if(m == 1) {
 void burg_order()
 {
     ARModel model = burg(pri.dt, pri.n, burg_order_var);
-    for(int i = 0; i < model.i; i++) {
-        printf("%lf  ",model.a[i].real );
-    } printf("  p=%lf\n", model.p);
-
     psd(model);
 }

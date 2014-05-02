@@ -27,9 +27,7 @@ private slots:
     void on_accuracy_radioButton_clicked();
     void on_order_radioButton_clicked();
     void on_order_spinBox_valueChanged(int);
-
     void on_burg_radioButton_clicked();
-
     void on_burg_order_spinBox_valueChanged(int);
 
 private:

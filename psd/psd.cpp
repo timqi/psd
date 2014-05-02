@@ -1,8 +1,5 @@
 #include "psd.h"
 #include "ui_psd.h"
-//#include "primitive.h"
-
-
 
 Psd::Psd(QWidget *parent) :
     QWidget(parent),
@@ -10,12 +7,11 @@ Psd::Psd(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->plot->setTitle("原函数：cos(2*PI*40*i)+3*cos(2*PI*100*i)+w(n)");
+    ui->plot->setTitle("原信号：cos(2*PI*40*i)+3*cos(2*PI*100*i)+w(n)");
     ui->plot->setAutoFillBackground( true );
     ui->plot->insertLegend( new QwtLegend(), QwtPlot::RightLegend );
     ui->plot->setAutoReplot( false );
 
-    // canvas
     QwtPlotCanvas *canvas = new QwtPlotCanvas();
     canvas->setLineWidth( 1 );
     canvas->setFrameStyle( QFrame::Box | QFrame::Plain );
@@ -26,9 +22,7 @@ Psd::Psd(QWidget *parent) :
     canvas->setPalette( canvasPalette );
     ui->plot->setCanvas( canvas );
 
-    // panning with the left mouse button
     ( void ) new QwtPlotPanner( canvas );
-    // zoom in/out with the wheel
     ( void ) new QwtPlotMagnifier( canvas );
 
     cSin->setRenderHint( QwtPlotItem::RenderAntialiased );
