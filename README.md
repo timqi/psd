@@ -8,4 +8,14 @@ psd
 - 提供原信号输入接口
 - 自由设置采样区间
 
+程序介绍：
+
 ![](img/1.png)
+
+## 编译环境
+
+- Ubuntu 14.04 trusty LTS
+- Qt 5.2.1
+- qwt 6.1.0
+
+使用 Qt Creator 将 psd.pro 文件添加进 Qt 工程编译即可（需要 qwt 6.1.0插件支持）。
