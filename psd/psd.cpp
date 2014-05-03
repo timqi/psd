@@ -61,14 +61,14 @@ void Psd::enable_corr(bool judge)
 {
     if(judge) {
         en_corr = true;
-        ui->label_4->setEnabled(true);
+        ui->argroup->setEnabled(true);
         ui->accuracy_doubleSpinBox->setEnabled(true);
         ui->accuracy_radioButton->setEnabled(true);
         ui->order_radioButton->setEnabled(true);
         ui->order_spinBox->setEnabled(true);
     } else {
         en_corr = false;
-        ui->label_4->setEnabled(false);
+        ui->argroup->setEnabled(false);
         ui->accuracy_doubleSpinBox->setEnabled(false);
         ui->accuracy_radioButton->setEnabled(false);
         ui->order_radioButton->setEnabled(false);

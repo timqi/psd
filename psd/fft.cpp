@@ -3,8 +3,7 @@
 Complex *fft(Complex *in, int n, int nfft)
 {
     if(n > nfft) {
-        printf("In fft().\nn must <= nfft.\nExit...\n");
-        exit(5);
+        n = nfft;
     }
     int i, j=0, k;
     Complex tmp;
