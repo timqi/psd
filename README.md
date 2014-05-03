@@ -12,7 +12,7 @@ psd
 
 ![](img/1.png)
 
-<br/>[视频地址：http://v.youku.com/v_show/id_XNzA3MDgwNzM2.html](http://v.youku.com/v_show/id_XNzA3MDgwNzM2.html)
+<br/>[演示视频：http://v.youku.com/v_show/id_XNzA3MDgwNzM2.html](http://v.youku.com/v_show/id_XNzA3MDgwNzM2.html)
 
 ## 编译环境
 
